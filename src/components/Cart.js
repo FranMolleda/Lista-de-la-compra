@@ -1,7 +1,8 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 
-const Cart = ({ food, handleDelete }) => {
+const Cart = ({ handleFavorite, food, handleDelete }) => {
   const { article, quantity, person, date, coments, id } = food;
+
   return (
     <Fragment>
       <div className="cita">
@@ -11,6 +12,7 @@ const Cart = ({ food, handleDelete }) => {
         <p>Date: {date}</p>
         <p>Coments: {coments}</p>
         <button onClick={() => handleDelete(id)}>Delete Article</button>
+        <button onClick={() => handleFavorite(id)}>Add to Favorite</button>
       </div>
     </Fragment>
   );
