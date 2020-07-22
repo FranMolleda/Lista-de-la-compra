@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
-const FormFood = () => {
+const FormFood = ({ addFoodtoCart }) => {
   const [foodForm, setFoodForm] = useState({
     article: "",
     quantity: "",
@@ -22,23 +23,31 @@ const FormFood = () => {
 
     //Validar
 
-    // if (
-    //   article.trim() === "" ||
-    //   quantity.trim() === "" ||
-    //   person.trim() === "" ||
-    //   date.trim() === "" ||
-    //   coments.trim() === ""
-    // ) {
-    //   setError(true);
-    //   return;
-    // }
-    // setError(false);
+    if (
+      article.trim() === "" ||
+      quantity.trim() === "" ||
+      person.trim() === "" ||
+      date.trim() === "" ||
+      coments.trim() === ""
+    ) {
+      setError(true);
+      return;
+    }
+    setError(false);
 
     //Añadir Id
-
+    foodForm.id = uuidv4();
     //Crear
+    addFoodtoCart(foodForm);
 
     //Resetear
+    setFoodForm({
+      article: "",
+      quantity: "",
+      person: "",
+      date: "",
+      coments: "",
+    });
   };
 
   return (
