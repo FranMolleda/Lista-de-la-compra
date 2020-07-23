@@ -22,8 +22,6 @@ const FormFood = ({ addFoodtoCart }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    //Validar
-
     if (
       item.trim() === "" ||
       quantity.trim() === "" ||
@@ -36,13 +34,10 @@ const FormFood = ({ addFoodtoCart }) => {
     }
     setError(false);
 
-    //Añadir Id
     foodForm.id = uuidv4();
-    //Crear
+
     addFoodtoCart(foodForm);
 
-    //Resetear
-    //No olvidar poner en cada innput el value con el valor de cada key
     setFoodForm({
       item: "",
       quantity: "",
