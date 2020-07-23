@@ -6,12 +6,10 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background-image: linear-gradient(
-    -225deg,
-    #8dbdf3 0%,
-    #1860d4 52%,
-    #002fff 100%
-  );
+  background-image: linear-gradient(-225deg,
+      #8dbdf3 0%,
+      #1860d4 52%,
+      #002fff 100%);
   min-height: 100%;
   padding-bottom: 5rem;
 }
@@ -66,10 +64,12 @@ input[type="time"] {
 
 .cita {
   padding: 2rem;
-  background: white;
+  background: rgba(255, 255, 255, 0.673);
   border-bottom: 1px solid #e1e1e1;
   color: black;
   margin-bottom: 1rem;
+  text-align: center;
+
 }
 
 .cita p {
@@ -93,23 +93,30 @@ input[type="time"] {
 
 .button.eliminar,
 .button.eliminar:hover {
-  background-color: #c10059;
-  color: white;
+  background-color: white;
+  color: #DB246F;
   margin-top: 2rem;
+  margin-right: 2rem;
 }
 
 .add-button {
-  background-color: #f8f5f6;
-  color: rgb(100, 98, 98);
+  background-color: #DB246F;
+  color: white;
   margin-top: 2rem;
 }
 
 .alerta-error {
   background-color: white;
-  color: blue;
+  color: #DB246F;
   padding: 1rem;
   font-size: 2rem;
   text-transform: uppercase;
   text-align: center;
   font-family: "Staatliches", cursive;
+}
+
+.space {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
 }
