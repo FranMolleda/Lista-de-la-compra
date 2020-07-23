@@ -1,9 +1,10 @@
 import React, { Fragment, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+import PropTypes from "prop-types";
 
 const FormFood = ({ addFoodtoCart }) => {
   const [foodForm, setFoodForm] = useState({
-    article: "",
+    item: "",
     quantity: "",
     person: "",
     date: "",
@@ -11,7 +12,7 @@ const FormFood = ({ addFoodtoCart }) => {
   });
   const [error, setError] = useState(false);
 
-  const { article, quantity, person, date, coments } = foodForm;
+  const { item, quantity, person, date, coments } = foodForm;
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -24,7 +25,7 @@ const FormFood = ({ addFoodtoCart }) => {
     //Validar
 
     if (
-      article.trim() === "" ||
+      item.trim() === "" ||
       quantity.trim() === "" ||
       person.trim() === "" ||
       date.trim() === "" ||
@@ -41,8 +42,9 @@ const FormFood = ({ addFoodtoCart }) => {
     addFoodtoCart(foodForm);
 
     //Resetear
+    //No olvidar poner en cada innput el value con el valor de cada key
     setFoodForm({
-      article: "",
+      item: "",
       quantity: "",
       person: "",
       date: "",
@@ -52,18 +54,17 @@ const FormFood = ({ addFoodtoCart }) => {
 
   return (
     <Fragment>
-      {error ? (
-        <p className="alerta-error">Introduzca todos los datos</p>
-      ) : null}
+      {error ? <p className="alerta-error">Complete all Files</p> : null}
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Article</label>
+          <label>item</label>
           <input
-            name="article"
+            name="item"
             type="text"
-            placeholder="Insert article"
+            placeholder="Insert item"
             className="u-full-width"
             onChange={handleChange}
+            value={item}
           />
         </div>
         <div>
@@ -74,16 +75,18 @@ const FormFood = ({ addFoodtoCart }) => {
             placeholder="Insert quantity"
             className="u-full-width"
             onChange={handleChange}
+            value={quantity}
           />
         </div>
         <div>
-          <label>Person</label>
+          <label>Who</label>
           <input
             name="person"
             type="text"
             placeholder="Insert person"
             className="u-full-width"
             onChange={handleChange}
+            value={person}
           />
         </div>
         <div>
@@ -93,6 +96,7 @@ const FormFood = ({ addFoodtoCart }) => {
             type="date"
             className="u-full-width"
             onChange={handleChange}
+            value={date}
           />
         </div>
         <div>
@@ -101,14 +105,19 @@ const FormFood = ({ addFoodtoCart }) => {
             className="u-full-width"
             name="coments"
             onChange={handleChange}
+            value={coments}
           />
         </div>
-        <button type="submit" className="u-full-width button add-button">
-          Add Article{" "}
+        <button submit="submit" className="u-full-width button add-button">
+          Add item
         </button>
       </form>
     </Fragment>
   );
+};
+
+FormFood.propTypes = {
+  addFoodtoCart: PropTypes.func.isRequired,
 };
 
 export default FormFood;
