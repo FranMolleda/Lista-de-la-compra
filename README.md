@@ -1,5 +1,4 @@
-https://buy-list-fran-molleda.netlify.app
-
+https://buy-list-fran-molleda.netlify.app 🥖🍏🍺
 ## Available Scripts
 
 In the project directory, you can run:
